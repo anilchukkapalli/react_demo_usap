@@ -1,6 +1,14 @@
 # New Project
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+> ✨ USAP Demo To Cover React Basics
+
+## Demo Details
+ Walks through all the concepts of react starting from beginning all the way to advanced.
+
+ For first time users run
+ ```
+ npm install
+ ```
 
 ## Available Scripts
 
