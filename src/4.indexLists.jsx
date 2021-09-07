@@ -17,7 +17,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// refactoring into a compoentnt
+// refactoring into a component
 
 function NumberList(props) {
     const numbers = props.numbers;
@@ -114,6 +114,55 @@ function ListItem(props) {
     return (
       <ul>
         {listItems}
+      </ul>
+    );
+  }
+
+  //keys must be only unique among siblings
+  //key is not passed down, use a different property as key is used internally
+  function Blog(props) {
+    const sidebar = (
+      <ul>
+        {props.posts.map((post) =>
+          <li key={post.id}>
+            {post.title}
+          </li>
+        )}
+      </ul>
+    );
+    const content = props.posts.map((post) =>
+      <div key={post.id} id={post.id}>
+        <h3>{post.title}</h3>
+        <p>{post.content}</p>
+      </div>
+    );
+    return (
+      <div>
+        {sidebar}
+        <hr />
+        {content}
+      </div>
+    );
+  }
+  
+  const posts = [
+    {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
+    {id: 2, title: 'Installation', content: 'You can install React from npm.'}
+  ];
+  ReactDOM.render(
+    <Blog posts={posts} />,
+    document.getElementById('root')
+  );
+
+//embedding map inside react
+function NumberList(props) {
+    const numbers = props.numbers;
+    return (
+      <ul>
+        {numbers.map((number) =>
+          <ListItem key={number.toString()}
+                    value={number} />
+        )}
       </ul>
     );
   }
